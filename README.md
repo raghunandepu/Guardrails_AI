@@ -33,6 +33,8 @@ python -m pip install -r requirements.txt
 
 The notebook prompts for `GROQ_API_KEY` without echoing it. Do not hard-code or commit API keys. The notebook uses LiteLLM's `groq/` provider prefix for `BOT_MODEL`; the LangChain `ChatGroq` example uses the model identifier expected by that adapter.
 
+For readable tutorial output, the setup cell disables OpenTelemetry and Guardrails tracing and suppresses only identified library warnings/logs. It filters a PyTorch `FutureWarning` specific to Python 3.14; this is only an output cleanup, not a compatibility fix, so use a supported Python/PyTorch combination for production. Validation, model, and API errors remain visible.
+
 `guardrails-ai` is the core framework. Each validator is a separate PyPI dependency, imported directly from its package:
 
 ```python
